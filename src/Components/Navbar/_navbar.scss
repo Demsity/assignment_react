@@ -1,14 +1,88 @@
-.container {
+.__navbar-container {
     justify-content: space-around;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: none;
+    position: fixed;
+    height: 80px;
+    top: 0;
+    z-index: 100;
 
     // Fix background transition to white when off showcase
     .__navbar-wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        position: fixed;
-        background: none;
-        top: 15px;
+
+
+        
+    }
+
+    .__navbar-logo {
+        // border: 1px solid red;
+        flex: 1;
+        font-size: $font-size-35;
+        font-weight: $font-weight-bold;
+    }
+
+    .__navbar-links {
+        // border: 1px solid red;
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .__navbar-link {
+            font-size: $font-size-16;
+            font-weight: $font-weight-meduim;
+            margin: 0 1rem;
+
+            &:hover {
+                color: $color-red-1;
+            }
+        }
+
+        .__link-active {
+            color: $color-red-1;
+            &:hover {
+                color: $theme-color-dark;
+            }
+        }
+    }
+
+    .__user-interface {
+        // border: 1px solid red;
+        flex: 1;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+
+    }
+
+}
+
+.__navbar-container-scrolled {
+    justify-content: space-around;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: $color-white-1;
+    position: fixed;
+    height: 80px;
+    top: 0;
+    z-index: 100;
+
+    // Fix background transition to white when off showcase
+    .__navbar-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+        
     }
 
     .__navbar-logo {

@@ -1,11 +1,11 @@
 import React from 'react'
 
-const ButtonRound = ({icon, pill}) => {
+const ButtonRound = ({icon, badge}) => {
   return (
     <a href='#' className='__round-button'>
       <i className={icon}></i>
       {/* Fix badges on only last 2 buttons */}
-      <span className='badge badge-pill badge-danger __badge-pill'>1</span>
+      <span className='badge badge-pill badge-danger __badge-pill'>{badge}</span>
     </a>
   )
 }

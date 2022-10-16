@@ -16,6 +16,7 @@ const PromoBanner = () => {
             btnColor='__btn-black'
             img={promoImg1}
             imgAlt='Gray Woman standing'
+            classes={'__card __brown'}
         />
         <Card 
             title='Winter Clearance Up to 70% Off!'
@@ -23,6 +24,7 @@ const PromoBanner = () => {
             btnColor='__btn-black'
             img={promoImg2}
             imgAlt='Gray man standning'
+            classes={'__card'}
         />
     </div>
   )
