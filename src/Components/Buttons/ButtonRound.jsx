@@ -1,12 +1,12 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-const ButtonRound = ({icon, badge}) => {
+const ButtonRound = ({icon, badge, link}) => {
   return (
-    <a href='#' className='__round-button'>
+    <NavLink className='__round-button' to={link}>
       <i className={icon}></i>
-      {/* Fix badges on only last 2 buttons */}
       <span className='badge badge-pill badge-danger __badge-pill'>{badge}</span>
-    </a>
+    </NavLink>
   )
 }
 
