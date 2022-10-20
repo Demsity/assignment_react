@@ -11,9 +11,9 @@ const Navbar = () => {
   const [navbar, setNavbar] = useState(false)
   const [showMenu, setShowMenu] = useState(true)
 
-
+// Fix background change on scrolling back up
   const changeBackground = () => {
-    if (window.scrollY >= 300) {
+    if (window.scrollY >= 60) {
       setNavbar(true);
     } else {
       setNavbar(false);

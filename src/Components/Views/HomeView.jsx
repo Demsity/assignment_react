@@ -1,4 +1,5 @@
 import React from 'react'
+import FeaturedGrid from '../FeaturedGrid/FeaturedGrid'
 import Footer from '../Footer/Footer'
 import Navbar from '../Navbar/Navbar'
 import PromoBanner from '../PromoBanner/PromoBanner'
@@ -10,6 +11,7 @@ function HomeView() {
         <Navbar />
         <Showcase />
         <PromoBanner />
+        <FeaturedGrid />
         <Footer />
     </>
   )

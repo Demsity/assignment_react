@@ -1,9 +1,6 @@
 import React from 'react'
 import Card from '../Cards/Card'
 
-import promoImg1 from './Assets/news-1.png'
-import promoImg2 from './Assets/news-2.png'
-
 const PromoBanner = () => {
   return (
     <div className='container __promo-banner'>
@@ -14,7 +11,7 @@ const PromoBanner = () => {
             }
             btnText='SHOP NOW'
             btnColor='__btn-black'
-            img={promoImg1}
+            img={'/Images/news-1.png'}
             imgAlt='Gray Woman standing'
             classes={'__card __brown'}
         />
@@ -22,7 +19,7 @@ const PromoBanner = () => {
             title='Winter Clearance Up to 70% Off!'
             btnText='SHOP NOW'
             btnColor='__btn-black'
-            img={promoImg2}
+            img={'/Images/news-2.png'}
             imgAlt='Gray man standning'
             classes={'__card'}
         />
