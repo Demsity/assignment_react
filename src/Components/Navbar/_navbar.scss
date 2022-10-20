@@ -106,7 +106,7 @@
             .__navbar-links {
                 position: relative;
                 flex-direction: row;
-                background-color: none;
+                background-color: transparent;
             }
     
         }
@@ -118,6 +118,10 @@
 
         .hiddenOnMobile {
             display: block;
+        }
+
+        .__navbar-links {
+            background-color: transparent;
         }
     }
 }

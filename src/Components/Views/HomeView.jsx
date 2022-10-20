@@ -8,8 +8,8 @@ function HomeView() {
   return (
     <>
         <Navbar />
-        {/* <Showcase />
-        <PromoBanner /> */}
+        <Showcase />
+        <PromoBanner />
         <Footer />
     </>
   )
