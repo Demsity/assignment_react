@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ButtonSquare from '../Buttons/ButtonSquare'
 
 const Card = ({title, par, btnText, btnColor, img, imgAlt, classes, imgLeft}) => {
-
-  const [imgLoc, setImgLoc] = useState(false)
 
   if (imgLeft){
     return (
@@ -15,7 +13,7 @@ const Card = ({title, par, btnText, btnColor, img, imgAlt, classes, imgLeft}) =>
               <ButtonSquare title={btnText} color={btnColor} />
           </div>
       </div>
-    )}else {
+    )} else {
       return (
         <div className={classes}>
             <div className='__card-text'>
