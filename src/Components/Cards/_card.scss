@@ -121,3 +121,25 @@
     }
 }
 
+.__grid-cat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-gray-5;
+    width: 200px;
+    height: 200px;
+    position: relative;
+
+    .__grid-cat-title {
+        font-size: $font-size-20;
+        font-weight: $font-weight-semibold;
+        margin-bottom: 2rem;
+    }
+    .__btn-black {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+}

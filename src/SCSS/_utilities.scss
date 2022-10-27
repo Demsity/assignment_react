@@ -23,3 +23,16 @@ a {
         color: $color-red-1;
     }
 }
+
+.__page-not-found {
+    margin-top: 100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+
+    h2 {
+        font-size: $font-size-45;
+        font-weight: $font-weight-semibold;
+    }
+}

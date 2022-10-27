@@ -12,6 +12,7 @@ import CategoriesView from './Components/Views/CategoriesView';
 import CartView from './Components/Views/CartView';
 import FavoritesView from './Components/Views/FavoritesView';
 import LogInView from './Components/Views/LogInView';
+import CategoriesViewSingle from './Components/Views/CategoriesViewSingle';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/cart' element={<CartView />} />
         <Route path='/favorites' element={<FavoritesView />} />
         <Route path='/login' element={<LogInView />} />
+        <Route path='/categories/:category' element={<CategoriesViewSingle />} />
 
         <Route path='*' element={<PageNotFound />} />
 

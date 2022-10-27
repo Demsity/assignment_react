@@ -5,7 +5,6 @@ import ProductList from '../Products/ProductList'
 
 function FeaturedGrid() {
     const [products, setProducts] = useState(ProductList)
-    console.log(products[0].discount)
     return (
         <div className="__grid-container">
             <h2>Featured Products</h2>

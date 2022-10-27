@@ -88,6 +88,16 @@ const ProductList = [{
         img: '/Images/cloak-green.png',
         imgAlt: 'a green cloak'
     },
+    {
+        id: 10,
+        productName: 'Modern Black Blouse 9',
+        category: 'Belts',
+        originalPrice: 35,
+        discountPrice: 20,
+        discount: true, 
+        img: '/Images/cloak-green.png',
+        imgAlt: 'a green cloak'
+    },
 ]
 
 export default ProductList 

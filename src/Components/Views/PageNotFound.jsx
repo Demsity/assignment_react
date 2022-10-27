@@ -6,7 +6,10 @@ function PageNotFound() {
   return (
     <>
       <Navbar />
-      Page Not Found
+        <div className='__page-not-found container'>
+          <h2>404 Page Not Found</h2>
+          <p>We are sorry for the inconvenience</p>
+        </div>
       <Footer />
     </>
   )
