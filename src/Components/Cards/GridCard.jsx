@@ -2,7 +2,7 @@ import React from 'react'
 import ButtonRound from '../Buttons/ButtonRound'
 import ButtonSquare from '../Buttons/ButtonSquare'
 
-function GridCard({ productName, category, originalPrice, discountPrice, discount, img, imgAlt }) {
+function GridCard({ product }) {
   return (
     <div className="__grid-card">
         <div className="__grid-card-image">
@@ -14,11 +14,11 @@ function GridCard({ productName, category, originalPrice, discountPrice, discoun
             </div>
                 <ButtonSquare title='QUICK VIEW' color='__btn-red' />
             </nav>
-            <img src={img} alt={imgAlt} />
+            <img src={product.img} alt={product.imgAlt} />
         </div>
         <div className="__grid-card-text">
-                <p className="__grid-card-text-category">{category}</p>
-                <p className="__grid-card-text-product">{productName}</p>
+                <p className="__grid-card-text-category">{product.category}</p>
+                <p className="__grid-card-text-product">{product.productName}</p>
                 <div className="__grid-rating">
                     {/* make rating a component with prop */}
                     <i className="fa-sharp fa-solid fa-star-sharp"></i>
@@ -28,8 +28,8 @@ function GridCard({ productName, category, originalPrice, discountPrice, discoun
                     <i className="fa-sharp fa-solid fa-star-sharp"></i>
                 </div>
                 <div className="__grid-price">
-                    <p className="__grid-price-original">{discount ? '$'+ originalPrice.toFixed(2) : ''}</p>
-                    <p className="__grid-price-discount">{'$' + discountPrice.toFixed(2)}</p>
+                    <p className="__grid-price-original">{product.discount ? '$'+ product.originalPrice.toFixed(2) : ''}</p>
+                    <p className="__grid-price-discount">{'$'+ product.discountPrice.toFixed(2)}</p>
             </div>
         </div>
     </div>
