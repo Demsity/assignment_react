@@ -7,7 +7,7 @@ function Breadcrumbs({ page, prevPage }) {
         <NavLink className={"__BC-index"} to={"/"}>HOME</NavLink>
         <div className='ms-3 me-3'><i className="fa-regular fa-arrow-right"></i></div>
         {
-          prevPage != undefined ? (
+          prevPage !== undefined ? (
             <>
             <NavLink className={"__BC-index"} to={`/${prevPage.toLowerCase()}`}>{prevPage.toUpperCase()}</NavLink>
             <div className='ms-3 me-3'><i className="fa-regular fa-arrow-right"></i></div>

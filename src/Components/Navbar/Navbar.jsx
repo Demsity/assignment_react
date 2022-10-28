@@ -43,7 +43,7 @@ const Navbar = () => {
         <nav className='__navbar-links' style={showMenu ? {'right': '0'} : {'right': '-200px'}}>
             <NavLink end className='__navbar-link' to='/'>Home</NavLink>
             <NavLink end className='__navbar-link' to='/categories'>Categories</NavLink>
-            <NavLink end className='__navbar-link' to='/products/'>Products</NavLink>
+            <NavLink end className='__navbar-link' to='/product/'>Products</NavLink>
             <NavLink end className='__navbar-link' to='/contact'>Contacts</NavLink>
         </nav>
         <nav className='__user-interface ms-4'>
