@@ -1,74 +1,51 @@
 import React, { useState, useEffect } from 'react'
 import ButtonSquare from '../Buttons/ButtonSquare'
+import { submitData, validate } from '../JS/Submit&Validation'
 
 function ContactForm() {
-    const [contactForm, setContactForm] = useState({contactName: '', contactEmail: '', contactComment: ''})
+    const [contactForm, setContactForm] = useState({name: '', email: '', comments: ''})
     const [formErrors, setFormErrors] = useState({})
     const [formSubmitted, setFormSubmitted] = useState(false)
+    const [failedSubmit, setFailedSubmit] = useState(false)
 
-    // Validate form
-    const validate =(values)=> {
-        const error = {}
-        
-        if (values.contactName === ''){
-            error.contactName = 'Please enter your name'
-        } else if (values.contactName.length < 2) {
-            error.contactName = 'You must enter atleast 2 characters'
-        } 
-
-        if (values.contactEmail === ''){
-            error.contactEmail = 'Please enter your email'
-        } else if (!validateEmail(values.contactEmail)) {
-            error.contactEmail = 'Enter a valid email adress (eg. domain@domain.com)'
-        }
-
-        if (values.contactComment === ''){
-            error.contactComment = 'Please enter your comments'
-        } else if (values.contactComment.length < 5) {
-            error.contactComment = 'Please enter atleast 5 characters'
-        }
-        return error
-    }
-
-    // validate email func
-    const validateEmail = (email) => {
-        return String(email)
-        .toLowerCase()
-        .match(
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        );
-    }
-    
-    // register keypress, bug when auto fill in
-    const onKeyUp = (e)=>{
+    // register keypress
+    const onChange = (e)=>{
         const {id, value} = e.target
         setContactForm({...contactForm, [id]: value })
 
     }
 
-    // setting the errors from validation
+    // use effect to validate input fields. Using use effect to get around async of State
     useEffect(() => {
         setFormErrors(validate(contactForm))
 
-    },[contactForm])
+    }, [contactForm])
+    
 
-    // check if form is valid before submit
-    const formValid = (obj) => {
-       return Object.keys(obj).length === 0
-    }
+
 
     // submitting the form
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if (formValid(formErrors)) {
-            console.log('form submitted')
-            // Submit form
-            setFormSubmitted(true)
+        if (formErrors.name === undefined && formErrors.email === undefined && formErrors.comments === undefined) {
+            
+            let json = JSON.stringify({...contactForm})
+            if (submitData) {
+                submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json )
+                setFormSubmitted(true)
+            }else {
+                setFailedSubmit(true)
+            }
+            
+
+            
 
         } else {
             console.log('Form not submitted')
-            return
+            setFormSubmitted(false)
+            setFormErrors(validate(contactForm))
+            
         }
 
     }
@@ -77,6 +54,10 @@ function ContactForm() {
     return (
         <section className='container __form-container'>
             {
+
+
+
+
                 formSubmitted ? 
                 (
                     <div className='__succsess container '>
@@ -85,21 +66,27 @@ function ContactForm() {
                         <img src={'/Images/success.gif'} alt='Form submitted' />
                     </div>
 
+                ): 
+
+                failedSubmit ? 
+                (
+                    <div>Opps, something went wrong error: 400</div>
                 ):
-                ( 
+
+                (
                 <form onSubmit={handleSubmit} className='__form' noValidate>
                     <h3 className='__form-title'>Come in contact with us!</h3>
                     <div className='__form-wrapper __form1'>
-                        <input type="text" name='contactName' id='contactName' placeholder='Your Name' onKeyUp={onKeyUp} />
-                        <div id='contactName-error' className='__text-error'>{formErrors.contactName}</div>
+                        <input type="text" name='name' id='name' placeholder='Your Name' onChange={onChange} />
+                        <div id='name-error' className='__text-error'>{formErrors.name}</div>
                     </div>
                     <div className='__form-wrapper __form2'>
-                        <input type="email" name='contactEmail' id='contactEmail' placeholder='Your Mail' onKeyUp={onKeyUp} />
-                        <div id='contactName-error' className='__text-error'>{formErrors.contactEmail}</div>
+                        <input type="email" name='email' id='email' placeholder='Your Mail' onChange={onChange} />
+                        <div id='name-error' className='__text-error'>{formErrors.email}</div>
                     </div>
                     <div className='__form-wrapper __form3'>
-                        <textarea type="text" name='contactComment' id='contactComment' placeholder='Your Comment' onKeyUp={onKeyUp} />
-                        <div id='contactName-error' className='__text-error'>{formErrors.contactComment}</div>
+                        <textarea type="text" name='comments' id='comments' placeholder='Your Comment' onChange={onChange} />
+                        <div id='name-error' className='__text-error'>{formErrors.comments}</div>
                     </div>
                     <ButtonSquare title="Post Comments" color="__btn-red" />
                 </form>

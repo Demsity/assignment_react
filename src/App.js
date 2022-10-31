@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './CSS/styles.min.css';
 import HomeView from './Components/Views/HomeView';
@@ -10,13 +10,16 @@ import CartView from './Components/Views/CartView';
 import FavoritesView from './Components/Views/FavoritesView';
 import LogInView from './Components/Views/LogInView';
 import CategoriesViewSingle from './Components/Views/CategoriesViewSingle';
-import ScrollToTop from './JS/ScrollToTop';
+import ScrollToTop from './Components/JS/ScrollToTop';
 import Description from './Components/ProductSubRoutes/Description';
 import Additional from './Components/ProductSubRoutes/Additional';
 import Returns from './Components/ProductSubRoutes/Returns';
 import Review from './Components/ProductSubRoutes/Review';
 
+
 function App() {
+  
+
   return (
     <>
     <Router>
@@ -29,7 +32,6 @@ function App() {
           <Route path='additional' element={<Additional />} />
           <Route path='returns' element={<Returns />} />
           <Route path='review' element={<Review />} />
-          
         </Route>
         <Route path='/categories' element={<CategoriesView />} />
         <Route path='/cart' element={<CartView />} />
