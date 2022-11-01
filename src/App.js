@@ -5,6 +5,7 @@ import HomeView from './Components/Views/HomeView';
 import ContactView from './Components/Views/ContactView';
 import PageNotFound from './Components/Views/PageNotFound';
 import ProductView from './Components/Views/ProductView';
+import ProductViewSingle from './Components/Views/ProductViewSingle';
 import CategoriesView from './Components/Views/CategoriesView';
 import CartView from './Components/Views/CartView';
 import FavoritesView from './Components/Views/FavoritesView';
@@ -39,11 +40,12 @@ function App() {
         <Routes>
             <Route path='/' element={<HomeView />} />
             <Route path='/contact' element={<ContactView />} />
-            <Route path='/product/:id' element={<ProductView />}>
-              <Route index path='description' element={<Description />} />
-              <Route path='additional' element={<Additional />} />
-              <Route path='returns' element={<Returns />} />
-              <Route path='review' element={<Review />} />
+            <Route path='/product/' element={<ProductView />} />
+            <Route path='/product/:name' element={<ProductViewSingle />}>
+                <Route index path='description' element={<Description />} />
+                <Route path='additional' element={<Additional />} />
+                <Route path='returns' element={<Returns />} />
+                <Route path='review' element={<Review />} />
             </Route>
             <Route path='/categories' element={<CategoriesView />} />
             <Route path='/cart' element={<CartView />} />

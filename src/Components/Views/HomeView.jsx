@@ -13,7 +13,7 @@ function HomeView() {
         <Navbar />
         <Showcase />
         <PromoBanner />
-        <FeaturedGrid />
+        <FeaturedGrid title='Featured Grid' gridNr={8} />
         <NewsBanner />
         <OurSpeciality />
         <Footer />

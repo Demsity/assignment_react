@@ -1,8 +1,9 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-const ButtonSquare = ({ title, color, }) => {
+const ButtonSquare = ({ title, color, path }) => {
   return (
-    <button className={color}>{title}</button>
+    <NavLink to={path} className={color}>{title}</NavLink>
 
   )
 }
