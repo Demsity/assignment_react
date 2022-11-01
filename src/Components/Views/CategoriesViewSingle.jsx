@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import GridCard from '../Cards/GridCard'
 import Footer from '../Footer/Footer'
 import Navbar from '../Navbar/Navbar'
 import ProductList from '../Products/ProductList'
 import { useLocation } from 'react-router-dom'
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs'
+import { ProductContext } from '../JS/Context'
 
 function CategoriesViewSingle( ) {
-    const [products, setProducts] = useState(ProductList)
+    const products = useContext(ProductContext)
     const location = useLocation()
     let filtered = []
 
@@ -21,7 +22,7 @@ function CategoriesViewSingle( ) {
                 <div className='__categories-grid'>
                 
                 {
-                    filtered.map(filtered => <GridCard key={filtered.id} product={filtered} />)
+                    filtered.map(filtered => <GridCard key={filtered.articleNumber} products={filtered} />)
                 }
 
                 </div>

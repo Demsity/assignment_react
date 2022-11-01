@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs'
 import GridCategoryCard from '../Cards/GridCategoryCard'
-import ProductList from '../Products/ProductList'
+import { ProductContext } from '../JS/Context'
 
 function Categories() {
-    const [categorires, setCategorires] = useState([...new Set(ProductList.map(item => item.category))])
+    const products = useContext(ProductContext)
+    const [categorires, setCategorires] = useState([...new Set(products.map(item => item.category))])
   return (
     <>
       <Breadcrumbs page='categories' />
