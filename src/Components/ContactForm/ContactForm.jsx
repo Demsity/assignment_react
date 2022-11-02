@@ -88,7 +88,7 @@ function ContactForm() {
                         <textarea type="text" name='comments' id='comments' placeholder='Your Comment' onChange={onChange} />
                         <div id='name-error' className='__text-error'>{formErrors.comments}</div>
                     </div>
-                    <ButtonSquare title="Post Comments" color="__btn-red" />
+                    <ButtonSquare type='submit' title="Post Comments" color="__btn-red" />
                 </form>
                 )
             }

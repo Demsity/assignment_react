@@ -16,7 +16,7 @@ function Breadcrumbs({ page, prevPage }) {
             null
           ) 
         }
-        <NavLink className={"__BC-index __active"} to={`/${page.toLowerCase()}`}>{page.toUpperCase()}</NavLink>
+        <span className={"__BC-index __active"}>{page.toUpperCase()}</span>
     </div>
   )
   

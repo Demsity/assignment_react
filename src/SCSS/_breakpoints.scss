@@ -27,3 +27,8 @@
         @content
     } 
 }
+@mixin uxxl {
+    @media (min-width: #{$breakpoint-xxl}) {
+        @content
+    } 
+}

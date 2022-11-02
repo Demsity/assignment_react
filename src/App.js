@@ -41,7 +41,7 @@ function App() {
             <Route path='/' element={<HomeView />} />
             <Route path='/contact' element={<ContactView />} />
             <Route path='/product/' element={<ProductView />} />
-            <Route path='/product/:name' element={<ProductViewSingle />}>
+            <Route path='/product/:id' element={<ProductViewSingle />}>
                 <Route index path='description' element={<Description />} />
                 <Route path='additional' element={<Additional />} />
                 <Route path='returns' element={<Returns />} />

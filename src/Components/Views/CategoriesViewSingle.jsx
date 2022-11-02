@@ -22,7 +22,7 @@ function CategoriesViewSingle( ) {
                 <div className='__categories-grid'>
                 
                 {
-                    filtered.map(filtered => <GridCard key={filtered.articleNumber} products={filtered} />)
+                    filtered.map(filtered => <GridCard key={filtered.articleNumber} products={filtered} path={`../product/${filtered.articleNumber}/description`} />)
                 }
 
                 </div>

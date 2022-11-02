@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { Link, Outlet } from 'react-router-dom';
+import React, { useState } from 'react'
+import { NavLink, Outlet } from 'react-router-dom';
 
-function Product( { id } ) {
+function Product( { product } ) {
     const [amount, setAmount] = useState(1)
 
     const incrementValue = () => {
@@ -25,16 +25,18 @@ function Product( { id } ) {
             <div className='container __product-container'>
                 <div className='__product-grid'>
                     <div className='__img-wrapper'>
-                        <img className='__img-big' src="" alt="" />
-                        <img className='__img-small' src="" alt="" />
-                        <img className='__img-small' src="" alt="" />
-                        <img className='__img-small' src="" alt="" />
+                        <img className='__img-big' src={product.imageName} alt={product.name} />
+                        <div className='__img-small-wrapper'>
+                            <img className='__img-small' src={product.imageName} alt={product.name} />
+                            <img className='__img-small' src={product.imageName} alt={product.name} />
+                            <img className='__img-small' src={product.imageName} alt={product.name} />
+                        </div>
                     </div>
                     <div className='__text-wrapper'>
                         <div className='__product-grid-text'>
-                            <h3 className='__product-name'>modern black blouse</h3>
+                            <h3 className='__product-name'>{product.name}</h3>
                             <div className='__product-details'>
-                                <p>sku:123123</p>
+                                <p>sku: {product.articleNumber}</p>
                                 <p>Brand: northland</p>
                             </div> 
                             <div className='__product-rating'>
@@ -45,10 +47,9 @@ function Product( { id } ) {
                                 <i className="fa-sharp fa-solid fa-star-sharp"></i>
                             </div>
                             <div className='__product-price'>
-                                <p className='__product-originalprice'>$35</p>
-                                <p className='__product-discountprice'>$20</p>
+                                <p className='__product-discountprice'>{'$'+ product.price.toFixed(2)}</p>
                             </div>
-                            <p className='__product-summary'>Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. (read more) </p>
+                            <p className='__product-summary'>{product.description === '' ? 'Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. (read more) ' : `${product.description}` } </p>
                         </div>
                     
                     <form onSubmit={handleSubmit}>
@@ -105,22 +106,22 @@ function Product( { id } ) {
         </section>
         <section className='__product-information'>
             <div className='container __product-inf-container'>
-                <nav className='__product-inf-navbar'>
+                <nav className='__product-inf-navbar container'>
                     <div className='__inf-links'>
-                        <div className='__inf-link __inf-link-active'>
-                            <Link activeClassName="__inf-link-active" to={'description'} className='__inf-link-active'>Description</Link>
-                            <div id='__border-1' className='__inf-border __inf-border-active '></div>
+                        <div className='__inf-link '>
+                            <NavLink end to={'description'} className={({ isActive }) => (isActive ? '__inf-link-active' : '__inf-link')}>Description</NavLink>
+                            <div id='__border-1' className='__inf-border'></div>
                         </div>
-                        <div className='__inf-link __inf-link-active'>
-                            <Link to={'additional'} className='__inf-link'>Additional</Link>
+                        <div className='__inf-link'>
+                            <NavLink end to={'additional'} className={({ isActive }) => (isActive ? '__inf-link-active' : '__inf-link')}>Additional</NavLink>
                             <div id='__border-2' className='__inf-border'></div>
                         </div>
                         <div className='__inf-link'>
-                            <Link to={'returns'} className='__inf-link'>Shopping & Returns</Link>
+                            <NavLink end to={'returns'} className={({ isActive }) => (isActive ? '__inf-link-active' : '__inf-link')}>Shopping & Returns</NavLink>
                             <div id='__border-3' className='__inf-border'></div>
                         </div>
-                        <div className='__inf-link __inf-link-active'>
-                            <Link to={'review'} className='__inf-link'>Reviews</Link>
+                        <div className='__inf-link'>
+                            <NavLink end to={'review'} className={({ isActive }) => (isActive ? '__inf-link-active' : '__inf-link')}>Reviews</NavLink>
                             <div id='__border-4' className='__inf-border'></div>
                         </div>
                     </div>

@@ -1,11 +1,10 @@
-import React, { useContext }  from 'react'
-import { useState } from 'react'
+import React from 'react'
 import ButtonRound from '../Buttons/ButtonRound'
-import ButtonSquare from '../Buttons/ButtonSquare'
-import { ProductContext } from '../JS/Context'
+import ButtonSquareNavLink from '../Buttons/ButtonSquareNavLink'
+
 
 function GridCard( {products, path} ) {
-    const [product, setProduct] = useState(products)
+    
   return (
     <div className="__grid-card">
         <div className="__grid-card-image">
@@ -15,7 +14,7 @@ function GridCard( {products, path} ) {
                 <ButtonRound link='/favorites' icon='fa-light fa-heart' />
                 <ButtonRound link='/cart' icon='fa-light fa-bag-shopping' />
             </div>
-                <ButtonSquare title='QUICK VIEW' color='__btn-red' path={path} />
+                <ButtonSquareNavLink title='QUICK VIEW' color='__btn-red' path={path} />
             </nav>
             <img className='img-fluid' src={products.imageName} alt={products.name} />
         </div>
