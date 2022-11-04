@@ -5,6 +5,7 @@ import Navbar from '../Navbar/Navbar'
 import NewsBanner from '../NewsBanner/NewsBanner'
 import OurSpeciality from '../OurSpeciality/OurSpeciality'
 import PromoBanner from '../PromoBanner/PromoBanner'
+import SaleGrid from '../SaleGrid/SaleGrid'
 import Showcase from '../Showcase/Showcase'
 
 function HomeView() {
@@ -16,6 +17,8 @@ function HomeView() {
         <FeaturedGrid title='Featured Grid' gridNr={8} />
         <NewsBanner />
         <OurSpeciality />
+        <SaleGrid />
+        <SaleGrid imgRight={true} />
         <Footer />
     </>
   )
