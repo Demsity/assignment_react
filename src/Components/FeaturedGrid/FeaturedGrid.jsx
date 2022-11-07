@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import GridCard from '../Cards/GridCard'
-import { ProductContext } from '../JS/Context'
+import { ProductContext } from '../Context/ProductsContext'
 
 
 function FeaturedGrid( {title, gridNr} ) {

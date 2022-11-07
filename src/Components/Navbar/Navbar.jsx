@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import ButtonRound from '../Buttons/ButtonRound'
+import { useCart } from '../Context/CartContext'
 
 
 
@@ -10,6 +11,8 @@ const Navbar = () => {
 
   const [navbar, setNavbar] = useState(false)
   const [showMenu, setShowMenu] = useState(true)
+
+  const { cartQuantity } = useCart
 
 // Fix background change on scrolling back up
   const changeBackground = () => {
@@ -42,7 +45,7 @@ const Navbar = () => {
       <NavLink className='__navbar-logo' to='/'>Fixxo.</NavLink>
         <nav className='__navbar-links' style={showMenu ? {'right': '0'} : {'right': '-200px'}}>
             <NavLink end className='__navbar-link' to='/'>Home</NavLink>
-            <NavLink end className='__navbar-link' to='/categories'>Categories</NavLink>
+            <NavLink className='__navbar-link' to='/categories'>Categories</NavLink>
             <NavLink className='__navbar-link' to='/product/'>Products</NavLink>
             <NavLink end className='__navbar-link' to='/contact'>Contacts</NavLink>
         </nav>
@@ -50,7 +53,10 @@ const Navbar = () => {
             <ButtonRound link='/search' icon='fa-regular fa-magnifying-glass'  />
             <ButtonRound hideOnMobile={true} link='/compare' icon='fa-light fa-code-compare'  />
             <ButtonRound hideOnMobile={true} link='/favorites' icon='fa-light fa-heart' badge='1' />
-            <ButtonRound link='/cart' icon='fa-light fa-bag-shopping' badge='3' />
+            <button className={'__round-button'} type='button' data-bs-toggle="offcanvas" data-bs-target={'#cart'} aria-controls={'cart'} >
+              <i className='fa-light fa-bag-shopping'></i>
+              <span className='badge badge-pill badge-danger __badge-pill'>{cartQuantity}</span>
+            </button>
             <button className='__hide-menu __round-button' onClick={toggleMenu}><i className="fa-regular fa-bars"></i></button>
         </nav>
       </div>

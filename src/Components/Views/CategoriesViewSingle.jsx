@@ -5,7 +5,7 @@ import Navbar from '../Navbar/Navbar'
 import ProductList from '../Products/ProductList'
 import { useLocation } from 'react-router-dom'
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs'
-import { ProductContext } from '../JS/Context'
+import { ProductContext } from '../Context/ProductsContext'
 
 function CategoriesViewSingle( ) {
     const products = useContext(ProductContext)

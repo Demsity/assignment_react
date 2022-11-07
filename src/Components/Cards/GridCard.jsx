@@ -1,9 +1,12 @@
 import React from 'react'
 import ButtonRound from '../Buttons/ButtonRound'
 import ButtonSquareNavLink from '../Buttons/ButtonSquareNavLink'
+import { useCart } from '../Context/CartContext'
 
 
 function GridCard( {products, path} ) {
+    const {incrementQuantity} = useCart
+    
     
   return (
     <div className="__grid-card">
@@ -12,7 +15,9 @@ function GridCard( {products, path} ) {
             <div className="__grid-card-btn-round">
                 <ButtonRound link='/compare' icon='fa-light fa-code-compare'  />
                 <ButtonRound link='/favorites' icon='fa-light fa-heart' />
-                <ButtonRound link='/cart' icon='fa-light fa-bag-shopping' />
+                <button className='__round-button' onClick={() => console.log('implement products first')} >
+                    <i className='fa-light fa-bag-shopping'></i>
+                </button>
             </div>
                 <ButtonSquareNavLink title='QUICK VIEW' color='__btn-red' path={path} />
             </nav>

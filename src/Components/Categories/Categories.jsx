@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs'
 import GridCategoryCard from '../Cards/GridCategoryCard'
-import { ProductContext } from '../JS/Context'
+import { ProductContext } from '../Context/ProductsContext'
 
 function Categories() {
     const products = useContext(ProductContext)

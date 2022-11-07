@@ -4,7 +4,7 @@ import Breadcrumbs from '../Breadcrumbs/Breadcrumbs'
 import Footer from '../Footer/Footer'
 import Navbar from '../Navbar/Navbar'
 import { useParams } from 'react-router-dom'
-import { ProductContext } from '../JS/Context'
+import { ProductContext } from '../Context/ProductsContext'
 import FeaturedGrid from '../FeaturedGrid/FeaturedGrid'
 
 function ProductViewSingle() {

@@ -1,13 +1,15 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { useContext } from 'react'
+import { useCart } from '../Context/CartContext'
 
-const ButtonRound = ({icon, badge, link, hideOnMobile,}) => {
+const ButtonRound = ({icon, cart, wish, hideOnMobile, id, onClick}) => {
+  const { cartQuantity }= useCart()
 
   return (
-    <NavLink className={`__round-button ${hideOnMobile ? "hiddenOnMobile" : ""}`} to={link}>
+    <button className={`__round-button ${hideOnMobile ? "hiddenOnMobile" : ""}` } onClick={onClick} type='button' data-bs-toggle="offcanvas" data-bs-target={`#${id}`} aria-controls={id} >
       <i className={icon}></i>
-      <span className='badge badge-pill badge-danger __badge-pill'>{badge}</span>
-    </NavLink>
+      <span className='badge badge-pill badge-danger __badge-pill'>{cart || wish ? cartQuantity: ''}</span>
+    </button>
   )
 }
 

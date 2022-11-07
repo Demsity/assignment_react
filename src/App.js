@@ -10,13 +10,14 @@ import CategoriesView from './Components/Views/CategoriesView';
 import CartView from './Components/Views/CartView';
 import FavoritesView from './Components/Views/FavoritesView';
 import LogInView from './Components/Views/LogInView';
-import { ProductContext } from './Components/JS/Context';
+import { ProductContext } from './Components/Context/ProductsContext';
 import CategoriesViewSingle from './Components/Views/CategoriesViewSingle';
 import ScrollToTop from './Components/JS/ScrollToTop';
 import Description from './Components/ProductSubRoutes/Description';
 import Additional from './Components/ProductSubRoutes/Additional';
 import Returns from './Components/ProductSubRoutes/Returns';
 import Review from './Components/ProductSubRoutes/Review';
+import { CartProvider } from './Components/Context/CartContext';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
     <>
     <Router>
       <ScrollToTop />
+      <CartProvider>
       <ProductContext.Provider value={products} >
         <Routes>
             <Route path='/' element={<HomeView />} />
@@ -56,6 +58,7 @@ function App() {
             <Route path='*' element={<PageNotFound />} />
         </Routes>
       </ProductContext.Provider>
+      </CartProvider>
     </Router>
     {/* Enable site scrolling */}
       <div style={{'height': '2000px'}}></div>
