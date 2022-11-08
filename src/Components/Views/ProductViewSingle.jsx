@@ -1,24 +1,33 @@
-import React, { useContext } from 'react'
+import React, { useEffect } from 'react'
 import Product from '../Products/Product'
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs'
 import Footer from '../Footer/Footer'
 import Navbar from '../Navbar/Navbar'
-import { useParams } from 'react-router-dom'
-import { ProductContext } from '../Context/ProductsContext'
+import { useParams, useLocation } from 'react-router-dom'
+import { useProducts } from '../Context/ProductsContext'
 import FeaturedGrid from '../FeaturedGrid/FeaturedGrid'
 
 function ProductViewSingle() {
   const productId = useParams()
-  const product = useContext(ProductContext).find((id) => id.articleNumber === productId.id )
+  const { product, getProduct, gridProducts, getGridProducts } = useProducts()
+  let location = useLocation()
 
-  return (
+  useEffect(() => {
+    getProduct(productId.id)
+    getGridProducts(4)
+  
+  }, [location.pathname])
+
+  
+
+  return  (
     <>
-    <Navbar />
-    <Breadcrumbs page={product.name} prevPage='product' />
-    <Product product={product} />
-    <FeaturedGrid title='Related Products' gridNr={4} />
-    <Footer />
-  </>
+      <Navbar />
+      <Breadcrumbs page={product.name} prevPage='product' />
+      <Product product={product} />
+      <FeaturedGrid title='Related Products' products={gridProducts} />
+      <Footer />
+    </>
   )
 }
 

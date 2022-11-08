@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useProducts } from '../Context/ProductsContext'
 import FeaturedGrid from '../FeaturedGrid/FeaturedGrid'
 import Footer from '../Footer/Footer'
 import Navbar from '../Navbar/Navbar'
@@ -9,16 +10,24 @@ import SaleGrid from '../SaleGrid/SaleGrid'
 import Showcase from '../Showcase/Showcase'
 
 function HomeView() {
+  const { gridProducts, getGridProducts } = useProducts()
+
+  useEffect(() => {
+    getGridProducts(8)
+  
+  }, [])
+  
   return (
     <>
         <Navbar />
         <Showcase />
         <PromoBanner />
-        <FeaturedGrid title='Featured Grid' gridNr={8} />
+        <FeaturedGrid title='Featured Grid' gridNr={8} products={gridProducts} />
         <NewsBanner />
         <OurSpeciality />
-        <SaleGrid />
-        <SaleGrid imgRight={true} />
+        {/* made a .slice due to API limitations, maybe fix later */}
+        <SaleGrid products={gridProducts.slice(6)} />
+        <SaleGrid products={gridProducts.slice(6)} imgRight={true} />
         <Footer />
     </>
   )

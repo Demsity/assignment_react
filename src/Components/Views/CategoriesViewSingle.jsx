@@ -1,14 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useEffect } from 'react'
 import GridCard from '../Cards/GridCard'
 import Footer from '../Footer/Footer'
 import Navbar from '../Navbar/Navbar'
-import ProductList from '../Products/ProductList'
 import { useLocation } from 'react-router-dom'
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs'
-import { ProductContext } from '../Context/ProductsContext'
+import { useProducts } from '../Context/ProductsContext'
 
 function CategoriesViewSingle( ) {
-    const products = useContext(ProductContext)
+    const { products, getProducts } = useProducts()
+
+    useEffect(() => {
+      getProducts()
+    
+    }, [])
+
     const location = useLocation()
     let filtered = []
 

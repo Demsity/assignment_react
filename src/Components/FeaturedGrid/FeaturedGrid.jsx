@@ -1,17 +1,18 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import GridCard from '../Cards/GridCard'
-import { ProductContext } from '../Context/ProductsContext'
 
 
-function FeaturedGrid( {title, gridNr} ) {
-    const product = useContext(ProductContext)
+
+function FeaturedGrid( {title, products} ) {
+    // console.log(products)
+
 
     return (
         <div className="__grid-container">
             <h2>{title}</h2>
             <div className='__grid'>
                 {
-                   product.slice(0, gridNr).map(product => <GridCard key={product.articleNumber} products={product} path={`/product/${product.articleNumber}/description`} />)
+                   products.map(product => <GridCard key={product.articleNumber} products={product} path={`/product/${product.articleNumber}/description`} />)
                 }
 
 

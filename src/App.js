@@ -10,7 +10,7 @@ import CategoriesView from './Components/Views/CategoriesView';
 import CartView from './Components/Views/CartView';
 import FavoritesView from './Components/Views/FavoritesView';
 import LogInView from './Components/Views/LogInView';
-import { ProductContext } from './Components/Context/ProductsContext';
+import { ProductsProvider } from './Components/Context/ProductsContext';
 import CategoriesViewSingle from './Components/Views/CategoriesViewSingle';
 import ScrollToTop from './Components/JS/ScrollToTop';
 import Description from './Components/ProductSubRoutes/Description';
@@ -21,16 +21,6 @@ import { CartProvider } from './Components/Context/CartContext';
 
 
 function App() {
-  const [products, setProducts] = useState([])
-
-
-  useEffect (() => {
-    const fetchData = async () => {
-      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products')
-      setProducts(await result.json())
-    }
-    fetchData()
-  }, [setProducts])
 
 
   return (
@@ -38,7 +28,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <CartProvider>
-      <ProductContext.Provider value={products} >
+      <ProductsProvider>
         <Routes>
             <Route path='/' element={<HomeView />} />
             <Route path='/contact' element={<ContactView />} />
@@ -57,7 +47,7 @@ function App() {
 
             <Route path='*' element={<PageNotFound />} />
         </Routes>
-      </ProductContext.Provider>
+      </ProductsProvider>
       </CartProvider>
     </Router>
     {/* Enable site scrolling */}
