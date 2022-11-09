@@ -1,8 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useCart } from '../Context/CartContext'
 
-function CartProduct() {
+
+
+function CartProduct({ name, price, img, articleNumber }) {
+  const [quantity, setQuantity] = useState()
+  const {
+    getItemQuantity,
+    incrementQuantity,
+    decrementQuantity,
+    removeItem
+  } = useCart()
+
+  useEffect(() => {
+    setQuantity(getItemQuantity(articleNumber))
+
+  }, [getItemQuantity])
+
+
   return (
-    <div>CartProduct</div>
+    <div className='__cart-item-container container'>
+      <div className='__cart-item-img'>
+        <img src={img} alt={name} />
+      </div>
+      <div className='__cart-item-name-and-counter'>
+        <h3>{name}</h3>
+        <div className='__counter'>
+          {/* need to check against 2 for it to work properly */}
+          <button onClick={() => quantity < 2 ? removeItem(articleNumber) : decrementQuantity({articleNumber})}>-</button>
+          <div className='__count'>{quantity}</div>
+          <button onClick={() => incrementQuantity({articleNumber})}>+</button>
+        </div>
+      </div>
+      <div className='__cart-item-price-and-remove'>
+        <span className='__cart-item-price'>{`$${price * quantity}`}</span>
+        <div className='__cart-item-remove'>
+        <button onClick={() => removeItem(articleNumber)}><i className="fa-solid fa-trash"></i></button>
+      </div>
+      </div>
+
+      
+    </div>
   )
 }
 

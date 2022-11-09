@@ -12,7 +12,7 @@ const Navbar = () => {
   const [navbar, setNavbar] = useState(false)
   const [showMenu, setShowMenu] = useState(true)
 
-  const { cartQuantity } = useCart
+  const { cartQuantity } = useCart()
 
 // Fix background change on scrolling back up
   const changeBackground = () => {

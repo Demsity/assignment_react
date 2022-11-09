@@ -5,8 +5,7 @@ import { useCart } from '../Context/CartContext'
 
 
 function GridCard( {products, path} ) {
-    const {incrementQuantity} = useCart
-    
+    const { incrementQuantity } = useCart()
     
   return (
     <div className="__grid-card">
@@ -15,7 +14,7 @@ function GridCard( {products, path} ) {
             <div className="__grid-card-btn-round">
                 <ButtonRound link='/compare' icon='fa-light fa-code-compare'  />
                 <ButtonRound link='/favorites' icon='fa-light fa-heart' />
-                <button className='__round-button' onClick={() => console.log('implement products first')} >
+                <button className='__round-button' onClick={() => incrementQuantity(products)} >
                     <i className='fa-light fa-bag-shopping'></i>
                 </button>
             </div>

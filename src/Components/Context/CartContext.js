@@ -17,16 +17,18 @@ export const CartProvider = ({children}) => {
     )
 
     const getItemQuantity = (articleNumber) => {
-        return cartItems.find(item => item.articleNumber === articleNumber).quantity || 0
+        return cartItems.find(item => item.articleNumber === articleNumber).quantity
     }
     // increment the product quantity in the shoppingcart
     const incrementQuantity = (cartItem) => {
-        const {articleNumber, product} = cartItem
-        console.log(cartItem)
+        const {articleNumber, name, price, imageName } = cartItem
+        
+        
 
         setCartItems(items => {
-            if (items.find(item => item.articleNumber === articleNumber) === null) {
-                return [...items, { articleNumber, product, quantity: 1 }]
+            
+            if (items.find(item => item.articleNumber === articleNumber) == null) {
+                return [...items, { articleNumber, name, price, imageName, quantity: 1 }]
             } else {
                 return items.map(item => {
                     if (item.articleNumber === articleNumber) {
@@ -62,6 +64,7 @@ export const CartProvider = ({children}) => {
             return items.filter(item => item.articleNumber !== articleNumber)
         })
     }
+
 
     return <CartContext.Provider value={{ cartItems, cartQuantity, getItemQuantity, incrementQuantity, decrementQuantity, removeItem }} >
         {children}
