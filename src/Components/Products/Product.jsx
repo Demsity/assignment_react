@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid'
 
 function Product( { product } ) {
     const [amount, setAmount] = useState(1)
@@ -45,11 +46,9 @@ function Product( { product } ) {
                                         <p>Brand: northland</p>
                                     </div> 
                                     <div className='__product-rating'>
-                                        <i className="fa-sharp fa-solid fa-star-sharp"></i>
-                                        <i className="fa-sharp fa-solid fa-star-sharp"></i>
-                                        <i className="fa-sharp fa-solid fa-star-sharp"></i>
-                                        <i className="fa-sharp fa-solid fa-star-sharp"></i>
-                                        <i className="fa-sharp fa-solid fa-star-sharp"></i>
+                                        {
+                                            Array(product.rating).fill(0).map(item => <i key={uuidv4()} className="fa-sharp fa-solid fa-star-sharp"></i>)
+                                        }
                                     </div>
                                     <div className='__product-price'>
                                         <p className='__product-discountprice'>{`$${product.price}`}</p>

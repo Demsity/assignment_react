@@ -2,10 +2,14 @@ import React from 'react'
 import ButtonRound from '../Buttons/ButtonRound'
 import ButtonSquareNavLink from '../Buttons/ButtonSquareNavLink'
 import { useCart } from '../Context/CartContext'
+import { v4 as uuidv4 } from 'uuid'
 
 
 function GridCard( {products, path} ) {
     const { incrementQuantity } = useCart()
+
+
+    
     
   return (
     <div className="__grid-card">
@@ -27,11 +31,14 @@ function GridCard( {products, path} ) {
                 <p className="__grid-card-text-product">{products.name}</p>
                 <div className="__grid-rating">
                     {/* make rating a component with prop */}
+                    {
+                        Array(products.rating).fill(0).map(item => <i key={uuidv4()} className="fa-sharp fa-solid fa-star-sharp"></i>)
+                    }
+                    {/* <i className="fa-sharp fa-solid fa-star-sharp"></i>
                     <i className="fa-sharp fa-solid fa-star-sharp"></i>
                     <i className="fa-sharp fa-solid fa-star-sharp"></i>
                     <i className="fa-sharp fa-solid fa-star-sharp"></i>
-                    <i className="fa-sharp fa-solid fa-star-sharp"></i>
-                    <i className="fa-sharp fa-solid fa-star-sharp"></i>
+                    <i className="fa-sharp fa-solid fa-star-sharp"></i> */}
                 </div>
                 <div className="__grid-price">
                     <p className="__grid-price-original">{'$'+ products.price.toFixed(2)}</p>
