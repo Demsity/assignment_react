@@ -50,7 +50,9 @@ const Navbar = () => {
             <NavLink end className='__navbar-link' to='/contact'>Contacts</NavLink>
         </nav>
         <nav className='__user-interface ms-4'>
-            <ButtonRound link='/search' icon='fa-regular fa-magnifying-glass'  />
+            <button className={'__round-button'} type='button' data-bs-toggle="offcanvas" data-bs-target={'#search'} aria-controls={'search'} >
+              <i className='fa-regular fa-magnifying-glass'></i>
+            </button>
             <ButtonRound hideOnMobile={true} link='/compare' icon='fa-light fa-code-compare'  />
             <ButtonRound hideOnMobile={true} link='/favorites' icon='fa-light fa-heart' badge='1' />
             <button className={'__round-button'} type='button' data-bs-toggle="offcanvas" data-bs-target={'#cart'} aria-controls={'cart'} >

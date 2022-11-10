@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs'
 import GridCategoryCard from '../Cards/GridCategoryCard'
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './CSS/styles.min.css';
 import HomeView from './Components/Views/HomeView';
@@ -7,7 +7,6 @@ import PageNotFound from './Components/Views/PageNotFound';
 import ProductView from './Components/Views/ProductView';
 import ProductViewSingle from './Components/Views/ProductViewSingle';
 import CategoriesView from './Components/Views/CategoriesView';
-import CartView from './Components/Views/CartView';
 import FavoritesView from './Components/Views/FavoritesView';
 import LogInView from './Components/Views/LogInView';
 import { ProductsProvider } from './Components/Context/ProductsContext';
@@ -24,7 +23,6 @@ function App() {
 
 
   return (
-    <>
     <Router>
       <ScrollToTop />
       <CartProvider>
@@ -40,7 +38,6 @@ function App() {
                 <Route path='review' element={<Review />} />
             </Route>
             <Route path='/categories' element={<CategoriesView />} />
-            <Route path='/cart' element={<CartView />} />
             <Route path='/favorites' element={<FavoritesView />} />
             <Route path='/login' element={<LogInView />} />
             <Route path='/categories/:category' element={<CategoriesViewSingle />} />
@@ -50,9 +47,6 @@ function App() {
       </ProductsProvider>
       </CartProvider>
     </Router>
-    {/* Enable site scrolling */}
-      <div style={{'height': '2000px'}}></div>
-    </>
   );
 }
 

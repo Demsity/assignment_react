@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState } from "react";
+import SearchBar from "../Searchbar/SearchBar";
 
 const ProductsContext = createContext()
 
@@ -33,6 +34,7 @@ export const ProductsProvider = ({children}) => {
 
     return <ProductsContext.Provider value={{ product, products, gridProducts, getProducts, getProduct, getGridProducts }}>
         {children}
+        <SearchBar />
     </ProductsContext.Provider>
 
 }

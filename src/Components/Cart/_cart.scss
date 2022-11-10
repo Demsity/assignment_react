@@ -1,5 +1,16 @@
 .__shoppingcart {
     width: 100% !important;
+
+    .__purchase-btn {
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .__btn-black {
+            width: 400px;
+        }
+    }
 }
 
 @include xxl {

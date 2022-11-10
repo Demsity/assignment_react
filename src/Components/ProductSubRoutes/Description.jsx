@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Desctiption( {} ) {
+function Desctiption( ) {
   return (
     <div className='container __product-info-container'>
       <p>Way extensive and dejection get delivered deficient sincerity gentleman age. Too end instrument possession contrasted motionless. Calling offence six joy feeling. Coming merits and was talent enough far. Sir joy northward sportsmen education. Discovery incommode earnestly no he commanded if. Put still any about manor heard. </p>
