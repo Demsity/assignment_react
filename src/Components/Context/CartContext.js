@@ -20,7 +20,7 @@ export const CartProvider = ({children}) => {
         return cartItems.find(item => item.articleNumber === articleNumber).quantity
     }
     // increment the product quantity in the shoppingcart
-    const incrementQuantity = (cartItem) => {
+    const incrementQuantity = (cartItem, itemQuantity = 1) => {
         const {articleNumber, name, price, imageName } = cartItem
         
         
@@ -28,7 +28,7 @@ export const CartProvider = ({children}) => {
         setCartItems(items => {
             
             if (items.find(item => item.articleNumber === articleNumber) == null) {
-                return [...items, { articleNumber, name, price, imageName, quantity: 1 }]
+                return [...items, { articleNumber, name, price, imageName, quantity: itemQuantity }]
             } else {
                 return items.map(item => {
                     if (item.articleNumber === articleNumber) {

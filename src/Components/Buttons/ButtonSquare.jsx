@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 const ButtonSquare = ({ title, color, path }) => {
   return (
-    <button to={path} className={color}>{title}</button>
+    <button data-testid='buttonSquare' to={path} className={color}>{title}</button>
 
   )
 }

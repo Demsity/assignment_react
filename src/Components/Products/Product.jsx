@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid'
+import { useCart } from '../Context/CartContext';
 
 function Product( { product } ) {
     const [amount, setAmount] = useState(1)
+    const { incrementQuantity } = useCart()
 
     const incrementValue = () => {
         setAmount(prevAmount => prevAmount +1)
@@ -19,6 +21,12 @@ function Product( { product } ) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+    }
+
+    // ignoring color and size for now, due quick add to cart button on productcard
+    const addToCart = (item) => {
+        const itemQuantity = document.getElementById('__amount').innerText
+        incrementQuantity(item, Number(itemQuantity))
     }
 
 
@@ -88,11 +96,11 @@ function Product( { product } ) {
                                 </div>
                                 <div id='qty'>
                                     <label className='__product-form-label'>Qty:</label>
-                                    <button type='button' onClick={decrementValue} className='__decrement'>-</button>
+                                    <button id='decrement' type='button' onClick={decrementValue} className='__decrement'>-</button>
                                     <div id='__amount'>{amount}</div>
-                                    <button type='button' onClick={incrementValue} className='__increment'>+</button>
+                                    <button id='increment' type='button' onClick={incrementValue} className='__increment'>+</button>
                                 </div>
-                                <button type='submit' id='btn' className='__btn-red'>ADD TO CART</button>
+                                <button type='button' onClick={() => addToCart(product)} id='btn' className='__btn-red'>ADD TO CART</button>
                                 <div id='share'>
                                     <p className='__product-form-label'>Share:</p>
                                     <div className='__share-icons'>

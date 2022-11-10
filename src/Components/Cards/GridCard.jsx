@@ -30,15 +30,10 @@ function GridCard( {products, path} ) {
                 <p className="__grid-card-text-category">{products.category}</p>
                 <p className="__grid-card-text-product">{products.name}</p>
                 <div className="__grid-rating">
-                    {/* make rating a component with prop */}
                     {
+                        // render out a star for each rating value. Create a array with value
                         Array(products.rating).fill(0).map(item => <i key={uuidv4()} className="fa-sharp fa-solid fa-star-sharp"></i>)
                     }
-                    {/* <i className="fa-sharp fa-solid fa-star-sharp"></i>
-                    <i className="fa-sharp fa-solid fa-star-sharp"></i>
-                    <i className="fa-sharp fa-solid fa-star-sharp"></i>
-                    <i className="fa-sharp fa-solid fa-star-sharp"></i>
-                    <i className="fa-sharp fa-solid fa-star-sharp"></i> */}
                 </div>
                 <div className="__grid-price">
                     <p className="__grid-price-original">{'$'+ products.price.toFixed(2)}</p>
