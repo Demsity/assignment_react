@@ -73,6 +73,10 @@
     }
 
     .__cart-item-price-and-remove {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
         span {
             font-size: $font-size-20;
             font-weight: $font-weight-semibold;

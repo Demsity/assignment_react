@@ -34,7 +34,7 @@ function SearchBar() {
 
             <div className='__query-products'>
                 {
-                    search(products).map(product => <GridCard key={product.articleNumber} products={product} path={`/product/${product.articleNumber}/description`} />)
+                   query ==='' ? 'Type in the searchbar' : search(products).map(product => <GridCard key={product.articleNumber} products={product} path={`/product/${product.articleNumber}/description`} />)
                     
                 }
             </div>

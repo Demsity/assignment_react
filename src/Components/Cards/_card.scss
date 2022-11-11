@@ -47,26 +47,12 @@
 
         .__grid-card-buttons {
             position: absolute;
-            top: 250px;
+            top: 0;
             height: 100%;
             width: 100%;
-            background-color: $color-gray-6;
+            background-color: none;
             opacity: 90%;
             transition: 250ms ease-in-out;
-        }
-
-        &:hover .__grid-card-buttons {
-            top: 0;
-        }
-
-        &:hover .__btn-red {
-            bottom: 0;
-            left: 0;
-        }
-
-        &:hover .__grid-card-btn-round {
-            right: 10px;
-            top: 5px;
         }
         
 
@@ -74,14 +60,14 @@
             position: absolute;
             width: 100%;
             left: 0;
-            bottom: -100px;
+            bottom: 0;
             transition: 250ms ease-in-out;
         }
 
         .__grid-card-btn-round {
             position: absolute;
             right: 10px;
-            top: 250px;
+            top: 0;
             display: flex;
             flex-direction: column;
             transition: 250ms ease-in-out;
@@ -114,6 +100,7 @@
         font-weight: $font-weight-semibold;
     }
 }
+
 
 .__grid-cat-card {
     display: flex;
@@ -160,26 +147,12 @@
 
         .__display-card-buttons {
             position: absolute;
-            top: 250px;
+            top: 0;
             height: 100%;
             width: 100%;
-            background-color: $color-gray-6;
+            background-color: none;
             opacity: 90%;
             transition: 250ms ease-in-out;
-        }
-
-        &:hover .__display-card-buttons {
-            top: 0;
-        }
-
-        &:hover .__btn-red {
-            bottom: 0;
-            left: 0;
-        }
-
-        &:hover .__display-card-btn-round {
-            right: 10px;
-            top: 5px;
         }
         
 
@@ -187,7 +160,7 @@
             position: absolute;
             width: 100%;
             left: 0;
-            bottom: -100px;
+            bottom: 0;
             transition: 250ms ease-in-out;
             text-align: center;
         }
@@ -195,7 +168,7 @@
         .__display-card-btn-round {
             position: absolute;
             right: 10px;
-            top: 250px;
+            top: 0;
             display: flex;
             flex-direction: column;
             transition: 250ms ease-in-out;
@@ -236,3 +209,109 @@
 
 }
 
+@include xxl {
+
+
+    .__grid-card {
+        .__grid-card-image {
+            .__grid-card-buttons {
+                position: absolute;
+                top: 250px;
+                height: 100%;
+                width: 100%;
+                background-color: $color-gray-6;
+                opacity: 90%;
+                transition: 250ms ease-in-out;
+            }
+    
+            &:hover .__grid-card-buttons {
+                top: 0;
+            }
+    
+            &:hover .__btn-red {
+                bottom: 0;
+                left: 0;
+            }
+    
+            &:hover .__grid-card-btn-round {
+                right: 10px;
+                top: 5px;
+            }
+            
+    
+            .__btn-red {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                bottom: -100px;
+                transition: 250ms ease-in-out;
+            }
+    
+            .__grid-card-btn-round {
+                position: absolute;
+                right: 10px;
+                top: 250px;
+                display: flex;
+                flex-direction: column;
+                transition: 250ms ease-in-out;
+    
+                .__round-button {
+                    margin-top: .5rem;
+                }
+            }
+        
+        }
+    }
+
+
+    .__display-card {
+        .__display-card-image {
+            .__display-card-buttons {
+                position: absolute;
+                top: 250px;
+                height: 100%;
+                width: 100%;
+                background-color: $color-gray-6;
+                opacity: 90%;
+                transition: 250ms ease-in-out;
+            }
+    
+            &:hover .__display-card-buttons {
+                top: 0;
+            }
+    
+            &:hover .__btn-red {
+                bottom: 0;
+                left: 0;
+            }
+    
+            &:hover .__display-card-btn-round {
+                right: 10px;
+                top: 5px;
+            }
+            
+    
+            .__btn-red {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                bottom: -100px;
+                transition: 250ms ease-in-out;
+            }
+    
+            .__display-card-btn-round {
+                position: absolute;
+                right: 10px;
+                top: 250px;
+                display: flex;
+                flex-direction: column;
+                transition: 250ms ease-in-out;
+    
+                .__round-button {
+                    margin-top: .5rem;
+                }
+            }
+        
+        }
+    }
+}

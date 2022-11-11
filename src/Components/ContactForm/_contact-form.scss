@@ -12,7 +12,8 @@
         grid-gap: 1.5rem;
         grid-template-areas: 
         'title title title title'
-        'form1 form1 form2 form2'
+        'form1 form1 form1 form1'
+        'form2 form2 form2 form2'
         'form3 form3 form3 form3'
         ;
 
@@ -68,4 +69,16 @@
         }
     }
 
+}
+
+@include xxl {
+    .__form-container {
+        .__form {
+            grid-template-areas: 
+            'title title title title'
+            'form1 form1 form2 form2'
+            'form3 form3 form3 form3'
+            ;
+        }
+    }
 }
