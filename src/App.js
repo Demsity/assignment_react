@@ -41,7 +41,6 @@ function App() {
             <Route path='/favorites' element={<FavoritesView />} />
             <Route path='/login' element={<LogInView />} />
             <Route path='/categories/:category' element={<CategoriesViewSingle />} />
-
             <Route path='*' element={<PageNotFound />} />
         </Routes>
       </ProductsProvider>

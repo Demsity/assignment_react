@@ -5,6 +5,8 @@ import ButtonSquare from '../Components/Buttons/ButtonSquare'
 
 
 
+// simple test for checking if Square button renders the input title
+
 describe(ButtonSquare, () => {
 
     it('renders button with correct text', () => {

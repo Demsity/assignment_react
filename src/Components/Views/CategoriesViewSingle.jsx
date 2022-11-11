@@ -17,6 +17,7 @@ function CategoriesViewSingle( ) {
     const location = useLocation()
     let filtered = []
 
+    // filter products based on url location
     filtered = products.filter((products) => {return products.category === location.state})
     return (
         <>
@@ -27,6 +28,7 @@ function CategoriesViewSingle( ) {
                 <div className='__categories-grid'>
                 
                 {
+                    // render out products based on url location
                     filtered.map(filtered => <GridCard key={filtered.articleNumber} products={filtered} path={`../product/${filtered.articleNumber}/description`} />)
                 }
 

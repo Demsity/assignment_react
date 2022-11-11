@@ -4,7 +4,7 @@ import { useCart } from '../Context/CartContext'
 import CartProduct from './CartProduct'
 
 function Cart() {
-  const { cartItems } =useCart()
+  const { cartItems } = useCart()
   return (
     <div className="__shoppingcart offcanvas offcanvas-end" tabIndex="-1" id="cart" aria-labelledby="cartLabel">
         <div className="offcanvas-header">
@@ -13,6 +13,7 @@ function Cart() {
         </div>
         <div className="offcanvas-body">
           {
+            // render out a product for each item in caritems state
             cartItems.map(item => (<CartProduct key={item.articleNumber} name={item.name} price={item.price} img={item.imageName} articleNumber={item.articleNumber} />))
           }
         </div>

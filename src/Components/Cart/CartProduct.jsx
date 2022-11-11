@@ -26,7 +26,7 @@ function CartProduct({ name, price, img, articleNumber }) {
       <div className='__cart-item-name-and-counter'>
         <h3>{name}</h3>
         <div className='__counter'>
-          {/* need to check against 2 for it to work properly */}
+          {/* need to check against '2' for it to work properly for some reason */}
           <button onClick={() => quantity < 2 ? removeItem(articleNumber) : decrementQuantity({articleNumber})}>-</button>
           <div className='__count'>{quantity}</div>
           <button onClick={() => incrementQuantity({articleNumber})}>+</button>

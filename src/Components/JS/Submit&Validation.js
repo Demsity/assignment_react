@@ -31,6 +31,7 @@ const validateEmail = (email) => {
     );
 }
 
+// Submit form to API
 export const submitData = (url, method, data, contentType = 'application/json') => {
     fetch(url, {
         method: method, 
@@ -41,7 +42,6 @@ export const submitData = (url, method, data, contentType = 'application/json') 
     })
     .then (res => {
         if (res.status === 200) {
-            // console.log(res)
             return true
         }
         return false

@@ -12,6 +12,7 @@ function ProductViewSingle() {
   const { product, getProduct, gridProducts, getGridProducts } = useProducts()
   let location = useLocation()
 
+  // update on url change, to make it update like it should
   useEffect(() => {
     getProduct(productId.id)
     getGridProducts(4)

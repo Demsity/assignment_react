@@ -3,6 +3,7 @@ import ButtonSquare from '../Buttons/ButtonSquare'
 
 const Card = ({title, par, btnText, btnColor, img, imgAlt, classes, imgLeft}) => {
 
+  // Made a prop for a left or right aligned image
   if (imgLeft){
     return (
       <div className={classes}>

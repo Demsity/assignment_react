@@ -3,6 +3,7 @@ import Breadcrumbs from '../Breadcrumbs/Breadcrumbs'
 import GridCategoryCard from '../Cards/GridCategoryCard'
 
 function Categories(products) {
+  // Get all the categorys from API products
   const categorires = [...new Set(products.products.map(item => item.category))]
   return (
     <>
@@ -11,6 +12,7 @@ function Categories(products) {
           <h2>Categories</h2>
           <div className='__categories-grid'>
               {
+                // Render out a card for all the different categorys in the API
                   categorires.map((categorires) => <GridCategoryCard key={categorires} category={categorires} />)
               
               }

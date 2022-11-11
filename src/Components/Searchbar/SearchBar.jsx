@@ -12,6 +12,7 @@ function SearchBar() {
 
     }, [])
 
+    // search products and return those matching query
     const search = (data) => {
         return data.filter((item) => 
         item.name.toLowerCase().includes(query) || 
@@ -25,6 +26,7 @@ function SearchBar() {
         <div className="__searchbar-header offcanvas-header">
             <h5 className="offcanvasRightLabel" id="offcanvasrightLabel"><i className='fa-regular fa-magnifying-glass me-2'></i>Search</h5>
             <div className='__searchbar-input'>
+                {/* Sets the query */}
                 <input type="search" placeholder='What are you looking for?' onChange={(e) => setQuery(e.target.value)} />
             </div>
             <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -34,6 +36,7 @@ function SearchBar() {
 
             <div className='__query-products'>
                 {
+                    // render out product matching the query
                    query ==='' ? 'Type in the searchbar' : search(products).map(product => <GridCard key={product.articleNumber} products={product} path={`/product/${product.articleNumber}/description`} />)
                     
                 }
