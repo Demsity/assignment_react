@@ -16,7 +16,7 @@ const PromoBanner = () => {
             classes={'__card __brown'}
         />
         <Card 
-            title='Winter Clearance Up to 70% Off!'
+            title='New Arrivals'
             btnText='SHOP NOW'
             btnColor='__btn-black'
             img={'/Images/news-2.png'}

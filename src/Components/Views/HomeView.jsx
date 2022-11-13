@@ -25,7 +25,7 @@ function HomeView() {
         <Navbar />
         <Showcase />
         <PromoBanner />
-        <FeaturedGrid title='Featured Grid' gridNr={8} products={gridProducts} />
+        <FeaturedGrid title='Featured Products' gridNr={8} products={gridProducts} />
         <NewsBanner />
         <OurSpeciality />
         {/* made a .slice due to API limitations, maybe fix later */}
